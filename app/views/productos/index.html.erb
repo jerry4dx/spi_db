@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Lista de Productos</h1>
+
+  <button type="button" name="button" class="btn btn-default"><%= link_to 'Nuevo producto', new_producto_path %></button><br>
+<br>
+<div class="row">
+<div class="col-md-12">
+  <table class=table>
+    <tr>
+      <th>Producto</th>
+      <th>Descripcion</th>
+    </tr>
+
+    <% @productos.each do |producto| %>
+      <tr>
+        <td><%= producto.title %></td>
+        <td><%= producto.text %></td>
+        <td><%= link_to 'Show', producto_path(producto) %> </td>
+        <td><%= link_to 'Edit', edit_producto_path(producto) %> </td>
+        <td><%= link_to 'Destroy', producto_path(producto),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+</div>
+</div>
